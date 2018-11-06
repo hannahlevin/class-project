@@ -1,0 +1,154 @@
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+
+body {
+    color: #777;
+    font: 18px/28px 'Raleway', sans-serif;
+    background: #fff;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: none;
+	margin: 0;
+}
+
+
+body, button, input, select, textarea {
+    color: #777;
+    font-family: 'Raleway', sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+#app {
+    background: #fff;
+    position: relative;
+}
+
+article, aside, details, figcaption, figure, footer, header, main, menu, nav, section, summary {
+    display: block;
+}
+
+.clear:before, .clear:after, .entry-content:before, .entry-content:after, .comment-content:before, .comment-content:after, .siteHeader:before, .siteHeader:after, .site-content:before, .site-content:after, .site-footer:before, .site-footer:after {
+    content: "";
+    display: table;
+    table-layout: fixed;
+}
+
+
+
+.container {
+    width: 1200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 auto;
+}
+@media only screen and (max-width: 1199px) {
+    .container {
+        width: 970px;
+    }
+}
+@media only screen and (max-width: 991px) {
+    .container {
+        width: 750px;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .container {
+        width: 100%;
+    }
+}
+
+
+
+
+.container:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+a {
+    color: #45c267;
+    text-decoration: none;
+    outline: none;
+}
+
+
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+
+.svg-inline--fa.fa-w-9 {
+    width: .5625em;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -.125em;
+}
+
+
+.voloteer-img {
+	background-image: url('images/volonteer.png');
+	background-repeat: no-repeat;
+	width: 100%;
+    display: block;
+    height: 416px;
+    background-position: center center;
+}
+
+@media only screen and (max-width: 991px) {
+    .voloteer-img {
+        max-height: 200px;
+        background-position: top center;
+    }
+}
+
+.banner {
+    position: relative;
+}
+.banner img {
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+.filtered-layout {
+    display: flex;
+}
+
+@media only screen and (max-width: 991px) {
+    .filtered-layout {
+        display: block;
+    }
+}
+
+
+
+.filtered-layout .filter {
+    flex: 1 auto;
+}
+.filtered-layout .result {
+    flex: 2 auto;
+}

@@ -1,97 +1,42 @@
-import React from 'react';
-import Home from './Home.jsx';
-import Contact from './Contact.jsx';
-import Team from './Team.jsx';
-import Lawyers from './Lawyers.jsx';
-import About from './About.jsx';
-import Donate from './Donate.jsx';
-import Login from './Login.jsx';
+/*
+Vladislav Iarmolenko
+slava.yarmolenko@gmail.com
+Created: August 2018
+*/
+import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
+import Home from './pages/Home.jsx';
+import Contact from './pages/Contact.jsx';
+import Team from './pages/Team.jsx';
+import Lawyers from './pages/Lawyers.jsx';
+import About from './pages/About.jsx';
+import Donate from './pages/Donate.jsx';
 
-class App extends React.Component {
-   constructor() {
-      super();
-      var self = this;
-      this.state = {
-         data: 
-            {
-                pageLoadedName: 'Home',
-                tag:(<Home/>)
-            }
-      };
-      
-      window.setInterval(function() {
-           var newHash = window.location.hash ? window.location.hash.slice(1): 'Home';
-           if (newHash !== self.state.data.pageLoadedName) {
-               
-               var tag;
-               switch (newHash) {
-                   case 'Contact':
-                        tag = (<Contact/>);
-                        break;
-                    case 'Team':
-                        tag = (<Team/>);
-                        break;
-                    case 'Donate':
-                        tag = (<Donate/>);
-                        break;
-                    case 'About':
-                        tag = (<About/>);
-                        break;
-                    case 'Lawyers':
-                        tag = (<Lawyers/>);
-                        break;
-                    case 'Login':
-                        tag = (<Login/>);
-                        break;
-                    default: 
-                        tag = (<Home/>);
-                        break;
-               }
-          
-               self.setState(   { data: { pageLoadedName:  newHash,
-                                        tag: tag
-                                    }
-                                }
-                            );
-               console.log('Page hash changed to ' + newHash);
-           }
-       }, 500);
-   }
-   render() {
-       
-       
-      var aStyle = {
-          fontSize: 20,
-          marginRight: 20,
-      };
-      return (
-        
-         <div class="map-header">
-            <div>
-                <div class="page">
-                    <div class="title">
-                    <h1 class = "cls">CLASS</h1>
-                    <ul class="navigation">
-                        <li><a href="#Home" style={aStyle}>Home</a></li>
-                        <li><a href="#Team" style={aStyle}>Team</a></li>
-                        <li><a href="#Donate" style={aStyle}>Donate</a></li>
-                        <li><a href="#Contact" style={aStyle}>Contact Us</a></li>
-                        <li><a href="#About" style={aStyle}>About</a></li>
-                        <li><a href="#Lawyers" style={aStyle}>Lawyers</a></li>
-                        <li><a href="#Login" style={aStyle}>Login</a></li>
-                        
-                    </ul>
-                    </div>
-                    <h2>{this.state.data.pageLoadedName}</h2> 
-                    
-                    <div class="pageContent">
-                            {this.state.data.tag}
-                    </div>
-                </div>
-            </div>
+const home = () => <Home></Home>;
+const contact = () => <Contact></Contact>;
+const about = () => <About></About>;
+const team = () => <Team></Team>;
+const lawyers = () => <Lawyers></Lawyers>;
+const donate = () => <Donate></Donate>;
 
-         </div>
-      );
-   }
-}
-export default App;
+
+const AppRouter = () => (
+    <Router>
+        <div>
+            <Header/>
+
+
+                <Route path="/" exact component={home} />
+                <Route path="/about/" component={about} />
+                <Route path="/lawyers/" component={lawyers} />
+                <Route path="/donate/" component={donate} />
+                <Route path="/team/" component={team} />
+                <Route path="/contact/" component={contact} />
+            <Footer/>
+        </div>
+    </Router>
+);
+
+export default AppRouter;

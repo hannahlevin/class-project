@@ -1,16 +1,7 @@
-/*
-Vladislav Iarmolenko
-slava.yarmolenko@gmail.com
-Created: August 2018
-*/
 import React from 'react';
 import ReactTable from 'react-table';
 import axios from 'axios';
-<<<<<<< HEAD
-import Lawyer from './Lawyer.jsx';
-=======
-var zipcodes = require('zipcodes');
->>>>>>> 55724c999e0a063416dc5d497707e363eced9201
+
 class Lawyers extends React.Component {
     constructor() {
         super();
@@ -19,13 +10,9 @@ class Lawyers extends React.Component {
             dataLoaded: false,
             error: null
         };
-<<<<<<< HEAD
-        
-=======
         //this.handleSubmit = this.handleSubmit.bind(this);
 
 
->>>>>>> 55724c999e0a063416dc5d497707e363eced9201
     }
     componentDidMount() {
         var self = this;
@@ -75,13 +62,9 @@ class Lawyers extends React.Component {
                     });
 
                 })
-<<<<<<< HEAD
-                .catch(error => { 
-=======
                 .catch(error => {
                     console.log('error::');
                     console.log('bebebe:' + error);
->>>>>>> 55724c999e0a063416dc5d497707e363eced9201
                     this.setState({
                         error: error.Error,
                         dataLoaded: false
@@ -110,58 +93,47 @@ class Lawyers extends React.Component {
             accessor: 'description'
         }];
 
-        const { data, dataLoaded, error } = this.state;
+        /* const { data, dataLoaded, error } = this.state;
         if (error) {
             return <p>{error}</p>;
         } else {
-
+*/
 
 
 
             return (
-<<<<<<< HEAD
-                    <div>
-                        <ReactTable
-                            data={data}
-                            columns={columns}
-                            pageSize="10"
-                        />
-                        <div className="classForm">    
-                            <Lawyer />
+                <div className="container">
+                    <h1>Laywers</h1>
+                    <div className="filtered-layout">
+                        <div className="filter">
+                            <form method="GET" name="searchLawyersNear" onSubmit={this.handleSubmit.bind(this)} >
+                                <div>
+                                    Enter your zip:
+                                <input type="text" name="usersZip" />
+                                </div>
+                                <div>
+                                    Distance:
+                                <input type="text" name="distance" />
+                                </div>
+                                <input type="radio" name="units" value="km" defaultChecked /> Kilometers
+                            <input type="radio" name="units" value="mil" />Miles
+                            <div>
+                                    <input type="submit" value="Submit" />
+                                </div>
+                            </form>
+                        </div>
+                        <div className="result">
+                            <ReactTable
+                                data={this.state.data}
+                                columns={columns}
+                                pageSize="10"
+                            />
                         </div>
                     </div>
-                    );
-        }
+                </div>
+            );
+        //}
     }
 
 }
-=======
-                <div>
-                    <ReactTable
-                        data={data}
-                        columns={columns}
-                        pageSize="10"
-                    />
-                    <form action="/api/lawyers" method="GET" name="searchLawyersNear" onSubmit={this.handleSubmit.bind(this)} >
-                        <div>
-                        Enter your zip:
-                            <input type="text" name="usersZip" />
-                            </div>
-                            <div>
-                        Distance:
-                            <input type="text" name="distance" />
-                            </div>
-                        <input type="radio" name="units" value="km" checked/> Kilometers
-                        <input type="radio" name="units" value="mil"/>Miles
-                        <div>
-                        <input type="submit" value="Submit"/>
-                        </div>
-                    </form>
-                </div>
-                        );
-                    }
-                }
-            
-            }
->>>>>>> 55724c999e0a063416dc5d497707e363eced9201
 export default Lawyers;
